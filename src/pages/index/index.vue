@@ -15,12 +15,17 @@
 
 <script setup>
 import { ref } from "vue";
+import Taro from "@tarojs/taro";
 import flowerItem from "../../common/flower/index.vue";
 
 const searchValue = ref("");
 
 function handlerClick(node) {
-  console.log(node);
+  const params = JSON.stringify(node);
+
+  Taro.navigateTo({
+    url: `/pages/flowerDetail/index?detail=${params}`,
+  });
 }
 </script>
 

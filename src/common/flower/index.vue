@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, watch, computed, onMounted } from "vue";
+import { ref, reactive, watch, computed } from "vue";
 import { cloneDeep, debounce } from "lodash";
 import { matchTreeData } from "../../assets/utils/index";
 import flowerData from "../../assets/flower/huayu.json";
@@ -68,7 +68,7 @@ watch(
 
 const searchFunc = debounce((val: string) => {
   const arr: any[] = matchTreeData(listData, val);
-  resData.showData = arr
+  resData.showData = arr;
 }, 300);
 
 const handlerView = debounce((url) => {
